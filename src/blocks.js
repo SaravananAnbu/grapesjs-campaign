@@ -22,22 +22,7 @@ export default (editor, config = {}) => {
           </mj-section>`,
         attributes: { class: 'gjs-fonts gjs-block' },
       });
-      blockManager.add('link', {
-        label: 'Link',
-        attributes: {class:'fa fa-link'},
-        content: {
-          type:'link',
-          content:'Link',
-          style:{color: '#d983a6'}
-        },
-      });
-      blockManager.add('h1', {
-        label: 'H1',
-        //category: 'Headings',
-        attributes: { class: 'fa fa-header'},
-        content: `<mj-text style="font-size:36px">Heading(h1)</mj-text>`,
-      });
-
+      
       // Render blocks in order
       blockManager.render([
         blockManager.get('mj-1-column'),
@@ -52,7 +37,6 @@ export default (editor, config = {}) => {
         blockManager.get('mj-divider'),
         blockManager.get('mj-social'),
         blockManager.get('mj-spacer'),
-        blockManager.get('h1'),
       ]);
   })
 }

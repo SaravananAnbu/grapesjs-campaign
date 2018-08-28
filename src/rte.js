@@ -1,6 +1,33 @@
 export default (editor, opt={}) => {
   var rte = editor.RichTextEditor;
-  rte.add('insertOrderedlist', {
+    rte.remove('link')
+    rte.add('link', {
+      name:'link',
+      icon: `<i class="fa fa-link open-link" onclick="openForm()" aria-hidden="true"></i>
+          <div id="linkForm" class="form-popup" onsubmit="submitForm()">
+            <input type="text" placeholder="http://example.com" value=""/>
+            <button title="Submit" onclick="closeForm()"><i class="fa fa-check" aria-hidden="true"></i></button>
+            <button title="Cancel" onclick="closeForm()"><i class="fa fa-times" aria-hidden="true"></i></button>
+          </div>`,
+      attributes: { title: 'CreateLink' },
+      result: (rte, action) => {
+        const url = action.btn.lastChild.childNodes[1].value;
+        rte.exec('createLink', url)
+      }
+    });
+    function openForm() {
+       document.getElementById("linkForm").style.display = "block";
+    }
+    function closeForm() {
+      document.getElementById("linkForm").style.display = "none";
+    }
+    rte.add('unlink', {
+      name: 'unlink',
+      icon: '<i class="fa fa-unlink" aria-hidden="true"></i>',
+      attributes: {title: 'Unlink'},
+      result: rte => rte.exec('unlink')
+    });
+    rte.add('insertOrderedlist', {
       icon: '<i class="fa fa-list-ol" aria-hidden="true"></i>',
       attributes: {title: 'Insert Ordered list'},
       result: rte => rte.exec('insertOrderedlist')

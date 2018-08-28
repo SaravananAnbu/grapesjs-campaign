@@ -13,7 +13,6 @@ export default (editor, opt = {}) => {
     panelManager.removeButton('views', 'open-layers');
     panelManager.removeButton('views', 'open-blocks');
     panelManager.removeButton('views', 'open-sm');
-    panelManager.removeButton('options', 'mjml-import');
 
     panelManager.addButton('views', {
       id: osm,
@@ -59,6 +58,22 @@ export default (editor, opt = {}) => {
     TypographySector && TypographySector.set('open', true);
     var DecorationSector = styleManager.getSector('Decorations')
     DecorationSector && DecorationSector.set('open', true);
+
+    //Adding Heading h1-h6 ion Typography
+      styleManager.addProperty('Typography', {
+        name: 'Heading',
+        type: 'select',
+        property: 'font-size',
+        defaults: 'choose',
+        options: [
+          {value: '36px', name: 'h1'},
+          {value: '30px', name: 'h2'},
+          {value: '24px', name: 'h3'},
+          {value: '20px', name: 'h4'},
+          {value: '18px', name: 'h5'},
+          {value: '16px', name: 'h6'},
+        ]
+      });
   });
 
 }
