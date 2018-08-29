@@ -6,9 +6,12 @@ export default (editor, opt = {}) => {
     // Customizing Panels
     var obl = 'open-blocks';
     var osm = 'open-sm';
+    var und = 'undo';
+    var rdo = 'redo';
+    var clrcanvas = 'clean-all';
     let panelManager = editor.Panels;
     let styleManager = editor.StyleManager;
-
+    let cmd = editor.Commands;
     //removing and Adding Buttons
     panelManager.removeButton('views', 'open-layers');
     panelManager.removeButton('views', 'open-blocks');
@@ -30,7 +33,56 @@ export default (editor, opt = {}) => {
       attributes: { title: 'Open Blocks' },
       label: '<small>Content</small>',
     });
+    panelManager.addButton('options', {
+      id: und,
+      className: 'fa fa-undo',
+      command: und,
+      attributes: { title: 'Undo (CTRL/CMD + Z)'}
+    });
+    panelManager.addButton('options', {
+      id: rdo,
+      className: 'fa fa-repeat',
+      command: rdo,
+      attributes: { title: 'Redo (CTRL/CMD + SHIFT + Z)'}
+    });
+    panelManager.addButton('options', {
+      id: clrcanvas,
+      className: 'fa fa-trash',
+      command: clrcanvas,
+      attributes: { title: 'Clear canvas' }
+    });
 
+    //Adding undo, redo, clear-canvas commands
+    cmd.add(und, {
+        run: function(editor, sender) {
+          sender.set('active', 0);
+          editor.UndoManager.undo(1);
+        }
+      });
+      cmd.add(rdo, {
+        run: function(editor, sender) {
+          sender.set('active', 0);
+          editor.UndoManager.redo(1);
+        }
+      });
+      cmd.add(clrcanvas, {
+        run: function(editor, sender) {
+          sender && sender.set('active',false);
+          if(confirm('Are you sure to clean the canvas?')){
+            var comps = editor.DomComponents.clear();
+            setTimeout(function(){
+              localStorage.clear()
+            },0)
+            editor.addComponents(`
+              <mjml>
+                <mj-body>
+                    <mj-container>
+                    </mj-container>
+                </mj-body>
+              </mjml>`)
+          }
+        }
+      });
 
     var $ = grapesjs.$;
     var openTmBtn = panelManager.getButton('views', 'open-tm');
@@ -60,7 +112,7 @@ export default (editor, opt = {}) => {
     DecorationSector && DecorationSector.set('open', true);
 
     //Adding Heading h1-h6 ion Typography
-      styleManager.addProperty('Typography', {
+    styleManager.addProperty('Typography', {
         name: 'Heading',
         type: 'select',
         property: 'font-size',
