@@ -1,6 +1,6 @@
 {
   "name": "grapesjs-campaign",
-  "version": "0.1.136",
+  "version": "0.1.137",
   "main": "dist/grapesjs-campaign.min.js",
   "scripts": {
     "lint": "eslint src",
