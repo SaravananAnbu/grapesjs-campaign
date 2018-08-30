@@ -1,3 +1,9 @@
+export function openForm() {
+  document.getElementById("linkForm").style.display = "block";
+}
+export function closeForm() {
+  document.getElementById("linkForm").style.display = "none";
+}
 export default (editor, opt={}) => {
   var rte = editor.RichTextEditor;
     rte.remove('link')
@@ -15,12 +21,12 @@ export default (editor, opt={}) => {
         rte.exec('createLink', url)
       }
     });
-    function openForm() {
-       document.getElementById("linkForm").style.display = "block";
-    }
-    function closeForm() {
-      document.getElementById("linkForm").style.display = "none";
-    }
+    // function openForm() {
+    //    document.getElementById("linkForm").style.display = "block";
+    // }
+    // function closeForm() {
+    //   document.getElementById("linkForm").style.display = "none";
+    // }
     rte.add('unlink', {
       name: 'unlink',
       icon: '<i class="fa fa-unlink" aria-hidden="true"></i>',
