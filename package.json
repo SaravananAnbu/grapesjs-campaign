@@ -1,6 +1,6 @@
 {
   "name": "grapesjs-campaign",
-  "version": "0.1.122",
+  "version": "0.1.123",
   "main": "dist/grapesjs-campaign.min.js",
   "scripts": {
     "lint": "eslint src",
@@ -40,9 +40,5 @@
     "webpack": "^4.16.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.4"
-  },
-  "dependencies": {
-    "axios": "^0.18.0"
-  },
-  "description": ""
+  }
 }
