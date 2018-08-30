@@ -1,19 +1,13 @@
-function openForm() {
-   document.getElementById("linkForm").style.display = "block";
-}
-function closeForm() {
-  document.getElementById("linkForm").style.display = "none";
-}
 export default (editor, opt={}) => {
   var rte = editor.RichTextEditor;
     rte.remove('link')
     rte.add('link', {
       name:'link',
-      icon: `<i class="fa fa-link open-link" onclick="openForm()" aria-hidden="true"></i>
-          <div id="linkForm" class="form-popup" onsubmit="submitForm()">
+      icon: `<i class="fa fa-link open-link" onclick="document.getElementById('linkForm').style.display = 'block'" aria-hidden="true"></i>
+          <div id="linkForm" class="form-popup">
             <input type="text" placeholder="http://example.com" value=""/>
-            <button title="Submit" onclick="closeForm()"><i class="fa fa-check" aria-hidden="true"></i></button>
-            <button title="Cancel" onclick="closeForm()"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <button title="Submit" onclick="document.getElementById('linkForm').style.display = 'none'"><i class="fa fa-check" aria-hidden="true"></i></button>
+            <button title="Cancel" onclick="document.getElementById('linkForm').style.display = 'none'"><i class="fa fa-times" aria-hidden="true"></i></button>
           </div>`,
       attributes: { title: 'CreateLink' },
       result: (rte, action) => {
