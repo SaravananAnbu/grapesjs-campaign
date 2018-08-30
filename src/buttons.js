@@ -3,6 +3,10 @@ import grapesjs from 'grapesjs';
 export default (editor, opt = {}) => {
 
   editor.on('load', function () {
+    //set mj-container height to 100% on load
+    var gjs_frame = editor.Canvas.getBody();
+    gjs_frame.querySelector('div[data-type="mj-container"]').style.height = '100%';
+
     // Customizing Panels
     var obl = 'open-blocks';
     var osm = 'open-sm';
