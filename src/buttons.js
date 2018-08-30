@@ -17,14 +17,6 @@ export default (editor, opt = {}) => {
     panelManager.removeButton('views', 'open-blocks');
     panelManager.removeButton('views', 'open-sm');
 
-    panelManager.addButton('views', {
-      id: osm,
-      className: 'p-50',
-      command: osm,
-      active: true,
-      attributes: { title: 'Open Style Manager'},
-      label: '<small>Styles</small>',
-    });
     panelManager.addButton('views',{
       id: obl,
       className: 'p-50',
@@ -32,6 +24,14 @@ export default (editor, opt = {}) => {
       active: true,
       attributes: { title: 'Open Blocks' },
       label: '<small>Content</small>',
+    });
+    panelManager.addButton('views', {
+      id: osm,
+      className: 'p-50',
+      command: osm,
+      active: true,
+      attributes: { title: 'Open Style Manager'},
+      label: '<small>Styles</small>',
     });
     panelManager.addButton('options', {
       id: und,
