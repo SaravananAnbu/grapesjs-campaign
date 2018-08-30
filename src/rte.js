@@ -1,7 +1,7 @@
-export function openForm() {
-  document.getElementById("linkForm").style.display = "block";
+function openForm() {
+   document.getElementById("linkForm").style.display = "block";
 }
-export function closeForm() {
+function closeForm() {
   document.getElementById("linkForm").style.display = "none";
 }
 export default (editor, opt={}) => {
@@ -21,12 +21,7 @@ export default (editor, opt={}) => {
         rte.exec('createLink', url)
       }
     });
-    // function openForm() {
-    //    document.getElementById("linkForm").style.display = "block";
-    // }
-    // function closeForm() {
-    //   document.getElementById("linkForm").style.display = "none";
-    // }
+
     rte.add('unlink', {
       name: 'unlink',
       icon: '<i class="fa fa-unlink" aria-hidden="true"></i>',
