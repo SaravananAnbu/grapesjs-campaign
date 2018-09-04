@@ -12,8 +12,16 @@ export default (editor, config = {}) => {
           </mj-section>`,
         attributes: { class: 'gjs-fonts gjs-block gjs-f-b37' },
       });
+      blockManager.add('mj-7/3-columns', {
+        label: `<svg style="padding-top:11px" id="svgcontent" width="44.999990279997895" height="34.999992439998366" x="825.000004860001" y="272.50000378000084" overflow="hidden" xmlns="http://www.w3.org/2000/svg" xmlns:se="http://svg-edit.googlecode.com" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 45 35"><g style="pointer-events:none"><g id="canvasGrid" width="100%" height="100%" x="0" y="0" overflow="visible" display="none"><rect width="100%" height="100%" x="0" y="0" stroke-width="0" fill="url(#gridpattern)" style="pointer-events: none; display:visible;"></rect></g></g><g style="pointer-events:all"><rect fill="#fff" stroke-width="2" x="1" y="1.0000000596046448" width="24.50000025693213" height="33" id="svg_2" stroke-dasharray="none" opacity="0.9500000000000001" rx="0" stroke="#555"></rect><rect fill="#fff" stroke-width="2" x="32.50003508516447" y="1.0000000596046448" width="10.999998929114973" height="33" id="svg_4" stroke-dasharray="none" opacity="0.9500000000000001" rx="0" stroke="#555"></rect></g></svg><div class="gjs-block-label" style="padding-top: 10px">2 Columns(7/3)</div>`,
+        content: `<mj-section>
+            <mj-column width="70%"><mj-text>Content 1</mj-text></mj-column>
+            <mj-column width="30%"><mj-text>Content 2</mj-text></mj-column>
+          </mj-section>`,
+        attributes: { class: 'gjs-fonts gjs-block gjs-f-b73' },
+      });
       blockManager.add('mj-4-columns', {
-        label: `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="225.04748603351953 224.6675977653632 184.93575418994413 167.85195530726253" width="50.44" height="40.35"><defs><path d="M226.55 226.17L263.78 226.17L263.78 389.52L226.55 389.52L226.55 226.17Z" id="f1p8cWUH6W"></path><path d="M273.78 226.17L311.01 226.17L311.01 389.52L273.78 389.52L273.78 226.17Z" id="apZRFVo0m"></path><path d="M321.77 226.17L358.99 226.17L358.99 389.52L321.77 389.52L321.77 226.17Z" id="d32mJveFU4"></path><path d="M369.75 226.17L406.98 226.17L406.98 389.52L369.75 389.52L369.75 226.17Z" id="c22d8TTKPg"></path></defs><g><g><g><use xlink:href="#f1p8cWUH6W" opacity="1" fill-opacity="0" stroke="#555" stroke-width="8" stroke-opacity="1"></use></g></g><g><g><use xlink:href="#apZRFVo0m" opacity="1" fill-opacity="0" stroke="#555" stroke-width="8" stroke-opacity="1"></use></g></g><g><g><use xlink:href="#d32mJveFU4" opacity="1" fill-opacity="0" stroke="#555" stroke-width="8" stroke-opacity="1"></use></g></g><g><g><use xlink:href="#c22d8TTKPg" opacity="1" fill-opacity="0" stroke="#555" stroke-width="8" stroke-opacity="1"></use></g></g></g></svg> <div class="gjs-block-label" style="padding-top: 10px">4 Columns</div> `,
+        label: `<svg style="padding-top:11px"id="svgcontent" width="57.991405777149154" height="34.99481383103828" x="818.5042971114254" y="272.50259308448085" overflow="hidden" xmlns="http://www.w3.org/2000/svg" xmlns:se="http://svg-edit.googlecode.com" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 58 35"><g style="pointer-events:none"><g id="canvasGrid" width="100%" height="100%" x="0" y="0" overflow="visible" display="none"><rect width="100%" height="100%" x="0" y="0" stroke-width="0" fill="url(#gridpattern)" style="pointer-events: none; display:visible;"></rect></g></g><g style="pointer-events:all"><rect fill="#fff" stroke="#555" stroke-width="2" x="1" y="1.0847488045692444" width="10" height="33" id="svg_2" stroke-dasharray="none" opacity="0.9500000000000001" rx="0"></rect><rect fill="#fff" stroke="#555" stroke-width="2" x="16.000016450881958" y="1.0847488045692444" width="10" height="33" id="svg_3" stroke-dasharray="none" opacity="0.9500000000000001" rx="0"></rect><rect fill="#fff" stroke="#555" stroke-width="2" x="31.00003457069397" y="1.0847488045692444" width="10" height="33" id="svg_4" stroke-dasharray="none" opacity="0.9500000000000001" rx="0"></rect><rect fill="#fff" stroke="#555" stroke-width="2" x="46.50004988908768" y="1.0847488045692444" width="10" height="33" id="svg_1" stroke-dasharray="none" opacity="0.9500000000000001" rx="0" transform="rotate(-1 51.500064849853636,17.584749221801612) "></rect></g></svg> <div class="gjs-block-label" style="padding-top: 10px">4 Columns</div> `,
         content: `<mj-section>
             <mj-column><mj-text>Content 1</mj-text></mj-column>
             <mj-column><mj-text>Content 2</mj-text></mj-column>
@@ -28,6 +36,7 @@ export default (editor, config = {}) => {
         blockManager.get('mj-1-column'),
         blockManager.get('mj-2-columns'),
         blockManager.get('mj-3/7-columns'),
+        blockManager.get('mj-7/3-columns'),
         blockManager.get('mj-3-columns'),
         blockManager.get('mj-4-columns'),
         blockManager.get('mj-text'),
